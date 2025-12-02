@@ -1,0 +1,17 @@
+{
+  "openssl": "3",
+  "zlib": "1.2",
+  "channel_targets": "defaults",
+  "xz": "5",
+  "target_platform": "win-64",
+  "tk": "8.6",
+  "bzip2": "1",
+  "c_compiler": "vs2019",
+  "cxx_compiler": "vs2019",
+  "c_stdlib": "vs",
+  "sqlite": "3",
+  "c_stdlib_version": "2019.11",
+  "libffi": "3.4",
+  "expat": "2",
+  "gil_type": "normal"
+}

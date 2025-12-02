@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "py313haa95532_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64/",
+  "constrains": [],
+  "depends": [
+    "python >=3.13,<3.14.0a0",
+    "python_abi 3.13.* *_cp313"
+  ],
+  "fn": "setuptools-80.9.0-py313haa95532_0.conda",
+  "license": "MIT",
+  "license_family": "MIT",
+  "md5": "be31889c40b8d7d5aecaa3f88b386a7a",
+  "name": "setuptools",
+  "platform": "win32",
+  "sha256": "39cf370a1411f140a3e5890e94006d766672abe4645ac43353dc7c1b4cbf0369",
+  "size": 1978336,
+  "subdir": "win-64",
+  "timestamp": 1759863302000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/setuptools-80.9.0-py313haa95532_0.conda",
+  "version": "80.9.0"
+}

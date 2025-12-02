@@ -1,0 +1,77 @@
+# This file created by conda-build 25.9.0
+# meta.yaml template originally from:
+# C:\Users\task_176112152127944\more-itertools-feedstock\recipe, last modified Wed Oct 22 08:25:35 2025
+# ------------------------------------------------
+
+package:
+  name: more-itertools
+  version: 10.8.0
+source:
+  url: https://pypi.org/packages/source/m/more-itertools/more_itertools-10.8.0.tar.gz
+  sha256: f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd
+build:
+  number: '0'
+  script: C:\\miniconda3\\conda-bld\\more-itertools_1761121564395\\_h_env\\python.exe
+    -m pip install . --no-deps --no-build-isolation -vv
+  string: py313haa95532_0
+requirements:
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2025.9.9 haa95532_0
+    - expat 2.7.1 h8ddb27b_0
+    - flit-core 3.12.0 py313he100be2_0
+    - libffi 3.4.4 hd77b12b_1
+    - libmpdec 4.0.0 h827c3e9_0
+    - libzlib 1.3.1 h02ab6af_0
+    - openssl 3.0.18 h543e019_0
+    - pip 25.2 pyhc872135_1
+    - python 3.13.9 h260b955_100_cp313
+    - python_abi 3.13 1_cp313
+    - setuptools 80.9.0 py313haa95532_0
+    - sqlite 3.50.2 hda9a48d_1
+    - tk 8.6.15 hf199647_0
+    - tzdata 2025b h04d1e81_0
+    - ucrt 10.0.22621.0 haa95532_0
+    - vc 14.3 h2df5915_10
+    - vc14_runtime 14.44.35208 h4927774_10
+    - vs2015_runtime 14.44.35208 ha6b5a95_10
+    - wheel 0.45.1 py313haa95532_0
+    - xz 5.6.4 h4754444_1
+    - zlib 1.3.1 h02ab6af_0
+  run:
+    - python >=3.13,<3.14.0a0
+    - python_abi 3.13.* *_cp313
+test:
+  source_files:
+    - tests
+  imports:
+    - more_itertools
+  requires:
+    - pip
+    - pytest
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('more-itertools')=='10.8.0')"
+    - pytest -v tests
+about:
+  home: https://github.com/more-itertools/more-itertools
+  license_file: LICENSE
+  license: MIT
+  license_family: MIT
+  summary: More routines for operating on iterables, beyond itertools
+  description: 'Python''s itertools library is a gem - you can compose elegant solutions
+    for a variety
+
+    of problems with the functions it provides. In more-itertools we collect additional
+
+    building blocks, recipes, and routines for working with Python iterables.
+
+    '
+  dev_url: https://github.com/more-itertools/more-itertools
+  doc_url: https://more-itertools.readthedocs.io
+extra:
+  recipe-maintainers:
+    - dbast
+    - pmlandwehr
+  final: true
+  copy_test_source_files: true

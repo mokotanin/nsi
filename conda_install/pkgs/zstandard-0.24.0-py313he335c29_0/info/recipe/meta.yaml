@@ -1,0 +1,89 @@
+# This file created by conda-build 25.7.0
+# meta.yaml template originally from:
+# C:\Users\task_175818818102398\zstandard-feedstock\recipe, last modified Thu Sep 18 09:51:03 2025
+# ------------------------------------------------
+
+package:
+  name: zstandard
+  version: 0.24.0
+source:
+  url: https://pypi.org/packages/source/z/zstandard/zstandard-0.24.0.tar.gz
+  sha256: fe3198b81c00032326342d973e526803f183f97aa9e9a98e3f897ebafe21178f
+  patches:
+    - use_system_zstd.patch
+build:
+  script: C:\\miniconda3\\conda-bld\\zstandard_1758189089298\\_h_env\\python.exe -m
+    pip install . -vv --no-deps --no-build-isolation
+  number: '0'
+  string: py313he335c29_0
+requirements:
+  build:
+    - vs2019_win-64 19.29.30159 hd50ca63_10
+    - vs_win-64 2019.11 hd50ca63_10
+    - vswhere 3.1.7 haa95532_0
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2025.9.9 haa95532_0
+    - cffi 1.17.1 py313h827c3e9_1
+    - expat 2.7.1 h8ddb27b_0
+    - libffi 3.4.4 hd77b12b_1
+    - libmpdec 4.0.0 h827c3e9_0
+    - libzlib 1.3.1 h02ab6af_0
+    - lz4-c 1.9.4 h2bbff1b_1
+    - openssl 3.0.17 h35632f6_0
+    - packaging 25.0 py313haa95532_0
+    - pip 25.2 pyhc872135_0
+    - pycparser 2.23 py313haa95532_0
+    - python 3.13.7 h260b955_100_cp313
+    - python_abi 3.13 1_cp313
+    - setuptools 78.1.1 py313haa95532_0
+    - sqlite 3.50.2 hda9a48d_1
+    - tk 8.6.15 hf199647_0
+    - tzdata 2025b h04d1e81_0
+    - ucrt 10.0.22621.0 haa95532_0
+    - vc 14.3 h2df5915_10
+    - vc14_runtime 14.44.35208 h4927774_10
+    - vs2015_runtime 14.44.35208 ha6b5a95_10
+    - wheel 0.45.1 py313haa95532_0
+    - xz 5.6.4 h4754444_1
+    - zlib 1.3.1 h02ab6af_0
+    - zstd 1.5.7 h56299aa_0
+  run:
+    - cffi >=1.17
+    - python >=3.13,<3.14.0a0
+    - python_abi 3.13.* *_cp313
+    - ucrt >=10.0.20348.0
+    - vc >=14.2,<15
+    - vc14_runtime >=14.29.30133
+    - zstd >=1.5.7,<1.5.8.0a0
+    - zstd >=1.5.7,<1.6.0a0
+test:
+  requires:
+    - pip
+  commands:
+    - pip check
+  imports:
+    - zstandard
+about:
+  home: https://github.com/indygreg/python-zstandard
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file:
+    - LICENSE
+    - zstd/LICENSE
+  summary: Zstandard bindings for Python
+  description: 'This project provides Python bindings for interfacing with the
+
+    Zstandard compression library. A C extension and CFFI interface are
+
+    provided.
+
+    '
+  doc_url: https://python-zstandard.readthedocs.io
+  dev_url: https://github.com/indygreg/python-zstandard
+extra:
+  recipe-maintainers:
+    - rmax
+    - xhochy
+  final: true
+  copy_test_source_files: true

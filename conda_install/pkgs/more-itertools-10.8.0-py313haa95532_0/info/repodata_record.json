@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "py313haa95532_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64/",
+  "constrains": [],
+  "depends": [
+    "python >=3.13,<3.14.0a0",
+    "python_abi 3.13.* *_cp313"
+  ],
+  "fn": "more-itertools-10.8.0-py313haa95532_0.conda",
+  "license": "MIT",
+  "license_family": "MIT",
+  "md5": "84c4bc844419c60fb8bce4d066acd07a",
+  "name": "more-itertools",
+  "platform": "win32",
+  "sha256": "b0a1eee1ac57f7fc418b41ce1be5e591057ec4445e888ba5489f8fcaf184349b",
+  "size": 169455,
+  "subdir": "win-64",
+  "timestamp": 1761121600000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/more-itertools-10.8.0-py313haa95532_0.conda",
+  "version": "10.8.0"
+}

@@ -1,0 +1,23 @@
+{
+  "arch": "x86_64",
+  "build": "py313haa95532_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64/",
+  "constrains": [],
+  "depends": [
+    "python >=3.13,<3.14.0a0",
+    "python_abi 3.13.* *_cp313"
+  ],
+  "fn": "packaging-25.0-py313haa95532_1.conda",
+  "license": "Apache-2.0 or BSD-2-Clause",
+  "license_family": "Apache",
+  "md5": "c67ee8fed5732098e4240761b614469f",
+  "name": "packaging",
+  "platform": "win32",
+  "sha256": "14b7628211cef4412c84f043aa333231fcffbd19b76d726bf4f5deb20167e729",
+  "size": 194481,
+  "subdir": "win-64",
+  "timestamp": 1761049135000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/packaging-25.0-py313haa95532_1.conda",
+  "version": "25.0"
+}

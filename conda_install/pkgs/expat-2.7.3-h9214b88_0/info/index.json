@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64",
+  "build": "h9214b88_0",
+  "build_number": 0,
+  "depends": [
+    "ucrt >=10.0.20348.0",
+    "vc >=14.2,<15",
+    "vc14_runtime >=14.29.30133"
+  ],
+  "license": "MIT",
+  "license_family": "MIT",
+  "name": "expat",
+  "platform": "win",
+  "subdir": "win-64",
+  "timestamp": 1762267638736,
+  "version": "2.7.3"
+}

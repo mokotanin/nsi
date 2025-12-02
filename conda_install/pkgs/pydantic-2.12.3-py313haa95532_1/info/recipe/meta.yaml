@@ -1,0 +1,129 @@
+# This file created by conda-build 25.9.0
+# meta.yaml template originally from:
+# C:\Users\task_176250531590722\pydantic-feedstock\recipe, last modified Fri Nov  7 08:49:48 2025
+# ------------------------------------------------
+
+package:
+  name: pydantic
+  version: 2.12.3
+source:
+  url: https://pypi.org/packages/source/p/pydantic/pydantic-2.12.3.tar.gz
+  sha256: 1da1c82b0fc140bb0103bc1441ffe062154c8d38491189751ee00fd8ca65ce74
+build:
+  number: '1'
+  script: C:\\miniconda3\\conda-bld\\pydantic_1762505416722\\_h_env\\python.exe -m
+    pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir
+    -vvv
+  string: py313haa95532_1
+requirements:
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2025.11.4 haa95532_0
+    - expat 2.7.3 h9214b88_0
+    - hatch-fancy-pypi-readme 24.1.0 py313haa95532_1
+    - hatchling 1.27.0 py313haa95532_1
+    - libffi 3.4.4 hd77b12b_1
+    - libmpdec 4.0.0 h827c3e9_0
+    - libzlib 1.3.1 h02ab6af_0
+    - openssl 3.0.18 h543e019_0
+    - packaging 25.0 py313haa95532_1
+    - pathspec 0.12.1 py313haa95532_1
+    - pip 25.2 pyhc872135_1
+    - pluggy 1.5.0 py313haa95532_0
+    - python 3.13.9 h260b955_100_cp313
+    - python_abi 3.13 1_cp313
+    - setuptools 80.9.0 py313haa95532_0
+    - sqlite 3.50.2 hda9a48d_1
+    - tk 8.6.15 hf199647_0
+    - trove-classifiers 2025.5.9.12 py313haa95532_0
+    - tzdata 2025b h04d1e81_0
+    - ucrt 10.0.22621.0 haa95532_0
+    - vc 14.3 h2df5915_10
+    - vc14_runtime 14.44.35208 h4927774_10
+    - vs2015_runtime 14.44.35208 ha6b5a95_10
+    - wheel 0.45.1 py313haa95532_0
+    - xz 5.6.4 h4754444_1
+    - zlib 1.3.1 h02ab6af_0
+  run:
+    - annotated-types >=0.6.0
+    - pydantic-core ==2.41.4
+    - python >=3.13,<3.14.0a0
+    - python_abi 3.13.* *_cp313
+    - typing-inspection >=0.4.2
+    - typing_extensions >=4.14.1
+  run_constrained:
+    - email-validator >=2.0.0
+    - tzdata
+test:
+  source_files:
+    - tests
+  imports:
+    - pydantic
+    - pydantic._internal
+    - pydantic._internal._config
+    - pydantic._internal._decorators
+    - pydantic._internal._discriminated_union
+    - pydantic._internal._generate_schema
+    - pydantic._internal._generics
+    - pydantic._internal._import_utils
+    - pydantic._internal._internal_dataclass
+    - pydantic._internal._mock_val_ser
+    - pydantic._internal._model_construction
+    - pydantic._internal._repr
+    - pydantic._internal._typing_extra
+    - pydantic._internal._utils
+    - pydantic._internal._validators
+    - pydantic._migration
+    - pydantic.alias_generators
+    - pydantic.color
+    - pydantic.config
+    - pydantic.dataclasses
+    - pydantic.deprecated.decorator
+    - pydantic.deprecated.json
+    - pydantic.deprecated.parse
+    - pydantic.deprecated.tools
+    - pydantic.errors
+    - pydantic.experimental.arguments_schema
+    - pydantic.experimental.pipeline
+    - pydantic.fields
+    - pydantic.functional_serializers
+    - pydantic.functional_validators
+    - pydantic.json_schema
+    - pydantic.main
+    - pydantic.networks
+    - pydantic.plugin
+    - pydantic.plugin._loader
+    - pydantic.type_adapter
+    - pydantic.types
+  requires:
+    - dirty-equals
+    - faker
+    - jsonschema
+    - pip
+    - pytest
+    - pytest-benchmark
+    - pytest-mock
+    - pytz
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('pydantic')=='2.12.3')"
+    - pytest -ra -vv --tb=short tests  --ignore=tests/test_docs.py  --deselect=tests/test_types_typeddict.py::test_readonly_qualifier_warning
+about:
+  home: https://github.com/pydantic/pydantic
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Data validation and settings management using python type hinting
+  description: 'Data validation and settings management using python type hinting.
+
+    See documentation doc_url for more details.
+
+    '
+  doc_url: https://docs.pydantic.dev
+  dev_url: https://github.com/pydantic/pydantic
+extra:
+  recipe-maintainers:
+    - dgasmith
+    - samuelcolvin
+  final: true
+  copy_test_source_files: true

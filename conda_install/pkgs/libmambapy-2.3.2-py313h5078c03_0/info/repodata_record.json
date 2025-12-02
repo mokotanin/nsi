@@ -1,0 +1,29 @@
+{
+  "arch": "x86_64",
+  "build": "py313h5078c03_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64/",
+  "constrains": [],
+  "depends": [
+    "fmt >=11.2.0,<12.0a0",
+    "libmamba 2.3.2 h7d9f7df_0",
+    "pybind11-abi 5",
+    "python >=3.13,<3.14.0a0",
+    "python_abi 3.13.* *_cp313",
+    "ucrt >=10.0.20348.0",
+    "vc >=14.2,<15",
+    "vc14_runtime >=14.29.30133"
+  ],
+  "fn": "libmambapy-2.3.2-py313h5078c03_0.conda",
+  "license": "BSD-3-Clause",
+  "license_family": "BSD",
+  "md5": "8fb152ede4385e84efaad22bb852ecac",
+  "name": "libmambapy",
+  "platform": "win32",
+  "sha256": "1a8274bb4c83e1a989cae67f8238f2efc2156b2d9c756457deda708f1c29fe7c",
+  "size": 454978,
+  "subdir": "win-64",
+  "timestamp": 1757623625000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/libmambapy-2.3.2-py313h5078c03_0.conda",
+  "version": "2.3.2"
+}

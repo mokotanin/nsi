@@ -1,0 +1,89 @@
+# This file created by conda-build 25.3.2
+# meta.yaml template originally from:
+# C:\b\abs_596d81ux2c\clone\recipe, last modified Thu Apr 24 09:51:37 2025
+# ------------------------------------------------
+
+package:
+  name: keyring
+  version: 25.6.0
+source:
+  sha256: 0b39998aa941431eb3d9b0d4b2460bc773b9df6fed7621c2dfb291a7e0187a66
+  url: https://pypi.io/packages/source/k/keyring/keyring-25.6.0.tar.gz
+build:
+  entry_points:
+    - keyring = keyring.cli:main
+  number: '0'
+  script: C:\\b\\abs_596d81ux2c\\croot\\keyring_1745484709696\\_h_env\\python.exe
+    -m pip install . --no-deps --no-build-isolation -vv
+  string: py313haa95532_0
+requirements:
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2025.2.25 haa95532_0
+    - expat 2.7.1 h8ddb27b_0
+    - libffi 3.4.4 hd77b12b_1
+    - libmpdec 4.0.0 h827c3e9_0
+    - openssl 3.0.16 h3f729d1_0
+    - packaging 24.2 py313haa95532_0
+    - pip 25.0 py313haa95532_0
+    - python 3.13.2 hadb2040_100_cp313
+    - python_abi 3.13 0_cp313
+    - setuptools 75.8.0 py313haa95532_0
+    - setuptools-scm 8.2.1 py313haa95532_0
+    - sqlite 3.45.3 h2bbff1b_0
+    - tk 8.6.14 h0416ee5_0
+    - toml 0.10.2 pyhd3eb1b0_0
+    - tzdata 2025a h04d1e81_0
+    - vc 14.42 haa95532_5
+    - vs2015_runtime 14.42.34433 hbfb602d_5
+    - wheel 0.45.1 py313haa95532_0
+    - xz 5.6.4 h4754444_1
+    - zlib 1.2.13 h8cc25b3_1
+  run:
+    - jaraco.classes
+    - jaraco.context
+    - jaraco.functools
+    - python >=3.13,<3.14.0a0
+    - python_abi 3.13.* *_cp313
+    - pywin32-ctypes >=0.2.0
+  run_constrained:
+    - shtab >= 1.1.0
+test:
+  commands:
+    - pip check
+    - py.test -v tests
+    - keyring --help
+  imports:
+    - keyring
+    - keyring.backends
+    - keyring.util
+  requires:
+    - pip
+    - pytest >=6,!=8.1.*
+  source_files:
+    - tests/*
+about:
+  description: 'The python keyring lib provides a easy way to access the system keyring
+
+    service from python.  it can be used in any application that needs safe
+
+    password storage.
+
+    '
+  dev_url: https://github.com/jaraco/keyring
+  doc_url: https://pypi.org/project/keyring/
+  home: https://github.com/jaraco/keyring
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Store and access your passwords safely
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: 5997da83-ade6-4848-916c-045b2c876621
+  recipe-maintainers:
+    - ccordoba12
+    - licode
+    - tacaswell
+  remote_url: git@github.com:AnacondaRecipes/keyring-feedstock.git
+  sha: 2be65f709e62805dc3eb5d37c1e3280b9f632c12

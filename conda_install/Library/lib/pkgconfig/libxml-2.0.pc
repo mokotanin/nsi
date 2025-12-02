@@ -1,0 +1,11 @@
+prefix=X:/nsi/conda_install/Library 
+exec_prefix=X:/nsi/conda_install/Library 
+libdir=X:/nsi/conda_install/Library/lib 
+includedir=X:/nsi/conda_install/Library/include 
+modules=0 
+Name: libXML 
+Version: 2.13.9 
+Description: libXML library version2. 
+Requires: 
+Libs: -LX:/nsi/conda_install/Library/lib -lxml2 -liconv -lz 
+Cflags: -IX:/nsi/conda_install/Library/include/libxml2 -IX:/nsi/conda_install/Library/include 

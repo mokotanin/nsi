@@ -1,0 +1,95 @@
+{
+  "paths": [
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/INSTALLER",
+      "path_type": "hardlink",
+      "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+      "size_in_bytes": 5
+    },
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/METADATA",
+      "path_type": "hardlink",
+      "sha256": "859893cf1071aa1932a48473980dda460ce73ffb7b5ec69910ca1a3afcd6122c",
+      "size_in_bytes": 3126
+    },
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/RECORD",
+      "path_type": "hardlink",
+      "sha256": "3578deadbfde14d013e0908da338d2bfd8ddb815e7981dd339fa48ba7a7ae122",
+      "size_in_bytes": 1210
+    },
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/REQUESTED",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    },
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/WHEEL",
+      "path_type": "hardlink",
+      "sha256": "c82dce55ef6c905134ac077bd2ea49c6e1f9594a3c2febdbb954a26d0fa24787",
+      "size_in_bytes": 101
+    },
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/direct_url.json",
+      "path_type": "hardlink",
+      "sha256": "d66408f28b33641957d5158ffb6daee7014cc7e1055527c40ac124c1b51a3a8c",
+      "size_in_bytes": 87
+    },
+    {
+      "_path": "Lib/site-packages/zstandard-0.24.0.dist-info/top_level.txt",
+      "path_type": "hardlink",
+      "sha256": "27ec23f78a4f69d6388a915a6a7ad8065acc6e53927a01184bca3f2dda20ae95",
+      "size_in_bytes": 10
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/__init__.py",
+      "path_type": "hardlink",
+      "sha256": "efb00322ab7ad7c0ea1da26bb814f63430000ef3116fabfd3f62b16f62f4d9c4",
+      "size_in_bytes": 7221
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/__init__.pyi",
+      "path_type": "hardlink",
+      "sha256": "f9c45f8db67ff3f901fec1560b5683fafb7031a3153c088d9d393777a2e5c411",
+      "size_in_bytes": 13967
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/__pycache__/__init__.cpython-313.pyc",
+      "path_type": "hardlink",
+      "sha256": "467062395e2d16e0f8b670318eaf78013e21606b1c85cff3329c52ff110526ac",
+      "size_in_bytes": 6286
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/__pycache__/backend_cffi.cpython-313.pyc",
+      "path_type": "hardlink",
+      "sha256": "7d03a5665805f9e7ac9124a7ffe12c1cac18d86be4f25b7546fdc2d31dc0b85e",
+      "size_in_bytes": 173956
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/_cffi.cp313-win_amd64.pyd",
+      "path_type": "hardlink",
+      "sha256": "d8512971fe2369eae6d2707cb1ba2220c0822d39d737b890c4101ee17818cc63",
+      "size_in_bytes": 675144
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/backend_c.cp313-win_amd64.pyd",
+      "path_type": "hardlink",
+      "sha256": "e56bae132f0eab1b4dce6fbcfb050236379e7421d64fa4d3e3f061964a2de486",
+      "size_in_bytes": 96072
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/backend_cffi.py",
+      "path_type": "hardlink",
+      "sha256": "6abb8d63bccc8fa72aff86c2bbe11510deeab96e2eaaeb54bd9e999dcbd3e8da",
+      "size_in_bytes": 153177
+    },
+    {
+      "_path": "Lib/site-packages/zstandard/py.typed",
+      "path_type": "hardlink",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_in_bytes": 0
+    }
+  ],
+  "paths_version": 1
+}

@@ -1,0 +1,20 @@
+{
+  "bzip2": "1",
+  "c_stdlib": "vs",
+  "yaml_cpp": "0.8",
+  "reproc": "14.2",
+  "reproc_cpp": "14.2",
+  "openssl": "3",
+  "libcurl": "8",
+  "cxx_compiler": "vs2019",
+  "simdjson": "3.10",
+  "c_compiler": "vs2019",
+  "c_stdlib_version": "2019.11",
+  "libarchive": "3.8",
+  "channel_targets": "defaults",
+  "fmt": "11",
+  "zstd": "1.5",
+  "spdlog": "1",
+  "target_platform": "win-64",
+  "libmamba": "2.0"
+}

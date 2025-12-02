@@ -1,0 +1,84 @@
+# This file created by conda-build 25.7.0
+# meta.yaml template originally from:
+# C:\Users\task_175978577559539\certifi-feedstock\recipe, last modified Mon Oct  6 21:27:35 2025
+# ------------------------------------------------
+
+package:
+  name: certifi
+  version: 2025.10.5
+source:
+  - url: https://github.com/certifi/python-certifi/archive/refs/tags/2025.10.05.tar.gz
+    sha256: c7016bd510a9b54bf558bd9e3dd40a78688490990c7861234f367219f6ec2ccf
+    folder: certifi
+  - url: https://pypi.io/packages/py3/p/pip/pip-24.3.1-py3-none-any.whl
+    sha256: 3790624780082365f47549d032f3770eeb2b1e8bd1f7b2e02dace1afa361b4ed
+    folder: pip_wheel
+  - url: https://pypi.io/packages/py3/s/setuptools/setuptools-75.6.0-py3-none-any.whl
+    sha256: ce74b49e8f7110f9bf04883b730f4765b774ef3ef28f722cce7c273d253aaf7d
+    folder: setuptools_wheel
+build:
+  number: '0'
+  string: py313haa95532_0
+requirements:
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2025.9.9 haa95532_0
+    - expat 2.7.1 h8ddb27b_0
+    - libffi 3.4.4 hd77b12b_1
+    - libmpdec 4.0.0 h827c3e9_0
+    - libzlib 1.3.1 h02ab6af_0
+    - openssl 3.0.18 h543e019_0
+    - python 3.13.7 h260b955_100_cp313
+    - python_abi 3.13 1_cp313
+    - sqlite 3.50.2 hda9a48d_1
+    - tk 8.6.15 hf199647_0
+    - tzdata 2025b h04d1e81_0
+    - ucrt 10.0.22621.0 haa95532_0
+    - vc 14.3 h2df5915_10
+    - vc14_runtime 14.44.35208 h4927774_10
+    - vs2015_runtime 14.44.35208 ha6b5a95_10
+    - wheel 0.45.1 py313haa95532_0
+    - xz 5.6.4 h4754444_1
+    - zlib 1.3.1 h02ab6af_0
+  run:
+    - python >=3.13,<3.14.0a0
+    - python_abi 3.13.* *_cp313
+test:
+  source_files:
+    - certifi/certifi/tests
+  imports:
+    - certifi
+  requires:
+    - pip
+    - pytest
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('certifi')=='2025.10.5')"
+    - pytest -vv certifi/certifi/tests
+about:
+  home: https://certifi.io
+  license: MPL-2.0
+  license_file: certifi/LICENSE
+  license_family: Other
+  summary: Python package for providing Mozilla's CA Bundle.
+  description: 'Certifi is a curated collection of Root Certificates for validating
+    the
+
+    trustworthiness of SSL certificates while verifying the identity of TLS
+
+    hosts.
+
+    '
+  doc_url: https://github.com/certifi/python-certifi/blob/master/README.rst
+  dev_url: https://github.com/certifi/python-certifi
+extra:
+  recipe-maintainers:
+    - jakirkham
+    - mingwandroid
+    - ocefpaf
+    - pelson
+    - sigmavirus24
+  skip-lints:
+    - missing_python_build_tool
+  final: true
+  copy_test_source_files: true

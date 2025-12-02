@@ -1,0 +1,99 @@
+# This file created by conda-build 25.9.0
+# meta.yaml template originally from:
+# C:\Users\task_176235936007300\requests-feedstock\recipe, last modified Wed Nov  5 16:19:44 2025
+# ------------------------------------------------
+
+package:
+  name: requests
+  version: 2.32.5
+source:
+  url: https://pypi.org/packages/source/r/requests/requests-2.32.5.tar.gz
+  sha256: dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf
+build:
+  number: '1'
+  script: C:\\miniconda3\\conda-bld\\requests_1762359611326\\_h_env\\python.exe -m
+    pip install . --no-deps --no-build-isolation -vv
+  string: py313haa95532_1
+requirements:
+  host:
+    - bzip2 1.0.8 h2bbff1b_6
+    - ca-certificates 2025.11.4 haa95532_0
+    - expat 2.7.3 h9214b88_0
+    - libffi 3.4.4 hd77b12b_1
+    - libmpdec 4.0.0 h827c3e9_0
+    - libzlib 1.3.1 h02ab6af_0
+    - openssl 3.0.18 h543e019_0
+    - pip 25.2 pyhc872135_1
+    - python 3.13.9 h260b955_100_cp313
+    - python_abi 3.13 1_cp313
+    - setuptools 80.9.0 py313haa95532_0
+    - sqlite 3.50.2 hda9a48d_1
+    - tk 8.6.15 hf199647_0
+    - tzdata 2025b h04d1e81_0
+    - ucrt 10.0.22621.0 haa95532_0
+    - vc 14.3 h2df5915_10
+    - vc14_runtime 14.44.35208 h4927774_10
+    - vs2015_runtime 14.44.35208 ha6b5a95_10
+    - wheel 0.45.1 py313haa95532_0
+    - xz 5.6.4 h4754444_1
+    - zlib 1.3.1 h02ab6af_0
+  run:
+    - certifi >=2017.4.17
+    - charset-normalizer >=2,<4
+    - idna >=2.5,<4
+    - python >=3.13,<3.14.0a0
+    - python_abi 3.13.* *_cp313
+    - urllib3 >=1.21.1,<3
+  run_constrained:
+    - chardet >=3.0.2,<6
+    - pysocks >=1.5.6,!=1.5.7
+test:
+  imports:
+    - requests
+  source_files:
+    - pyproject.toml
+    - tests
+  requires:
+    - conda
+    - pip
+    - pysocks >=1.5.6,!=1.5.7
+    - pytest >=6.2
+    - pytest-mock
+    - pytest-xdist
+  commands:
+    - pip check
+    - python -m conda
+    - conda create -v --dry-run -n requests-test numpy
+    - "pytest -v  \\\n  -k \"not (test_use_proxy_from_environment or TestRequests\
+      \ or TestTimeout \\\n  or test_requests_are_updated_each_time or tests/test_requests.py::test_urllib3_retries\
+      \ \\\n  or tests/test_requests.py::test_urllib3_pool_connection_closed or TestPreparingURLs\
+      \ \\\n  or test_content_length_for_bytes_data or test_content_length_for_string_data_counts_bytes\
+      \ \\\n  or test_urllib3_retries or test_urllib3_pool_connection_closed or test_zipped_paths_extracted)\"\
+      \n"
+about:
+  home: https://requests.readthedocs.io
+  license: Apache-2.0
+  license_family: Apache
+  license_file: LICENSE
+  summary: "Requests is an elegant and simple HTTP library for Python, built with\
+    \ \u2665."
+  description: 'Requests is the only Non-GMO HTTP library for Python, safe for human
+
+    consumption.
+
+    '
+  doc_url: https://requests.readthedocs.io
+  dev_url: https://github.com/psf/requests
+extra:
+  recipe-maintainers:
+    - carlodri
+    - jakirkham
+    - kalefranz
+    - mcg1969
+    - mingwandroid
+    - msarahan
+    - ocefpaf
+    - pelson
+    - sigmavirus24
+  final: true
+  copy_test_source_files: true

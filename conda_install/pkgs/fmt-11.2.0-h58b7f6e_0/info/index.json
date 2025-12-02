@@ -1,0 +1,17 @@
+{
+  "arch": "x86_64",
+  "build": "h58b7f6e_0",
+  "build_number": 0,
+  "depends": [
+    "ucrt >=10.0.20348.0",
+    "vc >=14.2,<15",
+    "vc14_runtime >=14.29.30133"
+  ],
+  "license": "MIT",
+  "license_family": "MIT",
+  "name": "fmt",
+  "platform": "win",
+  "subdir": "win-64",
+  "timestamp": 1754991152830,
+  "version": "11.2.0"
+}

@@ -1,0 +1,7 @@
+{
+  "c_stdlib": "vs",
+  "channel_targets": "defaults",
+  "c_stdlib_version": "2019.11",
+  "target_platform": "win-64",
+  "c_compiler": "vs2019"
+}

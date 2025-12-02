@@ -1,0 +1,20 @@
+{
+  "arch": "x86_64",
+  "build": "h02ab6af_0",
+  "build_number": 0,
+  "constrains": [
+    "zlib 1.3.1"
+  ],
+  "depends": [
+    "ucrt >=10.0.20348.0",
+    "vc >=14.2,<15",
+    "vc14_runtime >=14.29.30133"
+  ],
+  "license": "Zlib",
+  "license_family": "OTHER",
+  "name": "libzlib",
+  "platform": "win",
+  "subdir": "win-64",
+  "timestamp": 1756476045869,
+  "version": "1.3.1"
+}

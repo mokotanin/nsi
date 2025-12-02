@@ -1,0 +1,8 @@
+libdir=X:/nsi/conda_install/Library/lib
+includedir=X:/nsi/conda_install/Library/include
+
+Name: libsolv
+Description: Library for solving packages
+Version: 0.7.30
+Libs: -L${libdir} -lsolv
+Cflags: -I${includedir}
