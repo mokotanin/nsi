@@ -1,1 +1,0 @@
-X:\nsi\conda_install;X:\nsi\conda_install\Scripts

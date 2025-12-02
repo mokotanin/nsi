@@ -1,1 +1,0 @@
-.\activate_conda.ps1
