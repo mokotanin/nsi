@@ -1,5 +1,6 @@
 from tkinter import *
 import webbrowser
+from PIL import Image, ImageTk
 window=Tk()
 window.title("Mon Application")
 window.geometry("800x800")
@@ -13,6 +14,11 @@ label_titre=Label(frame,text="Première application",font=("Courrier",40),bg="#0
 label_titre.pack(side=TOP)
 label_sous_titre=Label(frame2,text="Bonjour tout le monde",font=("Courrier",20),bg="#0050FF",fg="white")
 label_sous_titre.pack(side=TOP)
+image=Image.open("ouii.jpg")
+photo=ImageTk.PhotoImage(image)
+label_img=Label(frame2,image=photo,bg="#6E6E6E")
+label_img.pack()
+
 
 def ouvrir_nsi():
     webbrowser.open_new("http://gisele.bareux.free.fr/NSI1.htm")
