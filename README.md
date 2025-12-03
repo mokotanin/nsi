@@ -2,7 +2,7 @@
 ## cours de nsi 2025-26
 petite trace des prémices **sombres** de la programmation
 # dépendances
-Installer [Python 3.12.6](https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe)
+Installer [Python 3.12.6](https://www.python.org/ftp/python/3.12.6/python-3.12.6-amd64.exe)  
 Crée un environnement virtuel :
 ```
 python -m venv venv
