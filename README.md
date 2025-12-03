@@ -7,4 +7,3 @@ Crée un environnement virtuel :
 ```
 python -m venv venv
 ```
-Pillow (séance 8) : ```pip install pillow```
