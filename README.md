@@ -1,4 +1,4 @@
-![Built with Python](https://github.com/mokotanin/nsi/blob/41807f0f0dc5a9f90d887b1f61cb635e4b7a1ef9/assets/compact_46h.png)
+![Built with Python](https://github.com/mokotanin/nsi/blob/41807f0f0dc5a9f90d887b1f61cb635e4b7a1ef9/assets/compact_46h.png)(https://github.com/cat-milk/Anime-Girls-Holding-Programming-Books/blob/2163af2a3a3f08237ba79cf7d59c7a72d4e849da/Python/mai_sakurajima_holding_python_programming_3in1_book.png)
 ## cours de nsi 2025-26
 petite trace des prémices **sombres** de la programmation
 # dépendances

@@ -1,3 +1,47 @@
 <html>
+  <head>
+  <meta charset="UTF-8">
+    <title>Preview File</title>
+    <link rel="icon" href="https://github.com/mokotanin/mokotanin/blob/main/assets/mokotanin.png">
+    <style>
+      #previewBox {
+        white-space: pre-wrap;
+        padding: 12px;
+        border: 1px solid black;
+        margin-top: 10px;
+        border-radius: 8px;
+      }
+    </style>
+  </html>
+  <body>
+
+  <button id="previewBtn">Preview <span class="txt"></span></button>
+
+  <div id="previewBox"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    const file = "oui.txt"; // <<< le fichier que tu veux preview
+
+    // affiche le nom dans le bouton
+    document.querySelector(".txt").textContent = file;
+
+    // preview au clic
+    document.getElementById("previewBtn").addEventListener("click", () => {
+      fetch(file)
+        .then(res => res.text())
+        .then(text => {
+          document.getElementById("previewBox").innerHTML = marked.parse(text);
+        })
+        .catch(() => {
+          document.getElementById("previewBox").textContent = "error loading file 🥀💔";
+        });
+    });
+  </script>
+
+  </body>
   Hello World!
+  <h1 class="title"> Bonne soirée </h1>
+  <a class="link" href="https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/link/">oui</a>
 </html>
