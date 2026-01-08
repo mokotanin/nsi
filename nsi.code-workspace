@@ -4,5 +4,12 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveshare.guestApprovalRequired": true,
+		"liveshare.allowGuestDebugControl": true,
+		"liveshare.allowGuestTaskControl": true,
+		"liveshare.anonymousGuestApproval": "accept",
+		"liveshare.languages.allowGuestCommandControl": true,
+		"liveshare.notebooks.allowGuestExecuteCells": true
+	}
 }
