@@ -107,7 +107,7 @@ frame.pack(pady=10)
 bouttonrejouer = ttk.Button(frame, text="Rejouer", command=Rejouer)#bouttons
 bouttonrejouer.pack(side="left", padx=10)
 
-bouttonquitter = ttk.Button(frame, text="Quitter", command=window.quit)
+bouttonquitter = ttk.Button(frame, text="Quitter", command=window.destroy)
 bouttonquitter.pack(side="left", padx=10)
 
 Grille(morpion)#lancement du programme

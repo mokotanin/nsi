@@ -7,3 +7,6 @@ Crée un environnement virtuel :
 ```
 python -m venv venv
 ```
+```
+pip install pyxel
+```

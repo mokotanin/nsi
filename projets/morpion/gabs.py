@@ -87,7 +87,7 @@ frame.pack(pady=10)
 bouttonrejouer = Button(frame, text="Rejouer", command=Rejouer)#bouttons
 bouttonrejouer.pack(side="left", padx=10)
 
-bouttonquitter = Button(frame, text="Quitter", command=window.quit)
+bouttonquitter = Button(frame, text="Quitter", command=window.destroy)
 bouttonquitter.pack(side="left", padx=10)
 
 Grille(morpion)#lancement du programme
