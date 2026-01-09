@@ -8,6 +8,8 @@ def update():
     global change
     if pyxel.btnp(pyxel.KEY_Q):
         pyxel.quit()
+    if pyxel.btnp(pyxel.KEY_N):
+        change=0
     if pyxel.btnp(pyxel.KEY_L):
         change=1
 
