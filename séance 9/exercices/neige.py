@@ -6,15 +6,15 @@ neige_list = []
 def ajout_neige():
     x = random.randint(0, pyxel.width)
     y = 0
-    size = random.randint(1, 3)
-    neige_list.append({"x": x, "y": y, "size": size})
+    taille = random.randint(1, 3)
+    neige_list.append({"x": x, "y": y, "taille": taille})
 
 def update():
     if pyxel.frame_count % 1 == 0:
         ajout_neige()
     
     for flocon in neige_list:
-        flocon["y"] += flocon["size"] * 0.5
+        flocon["y"] += flocon["taille"] * 0.5
     
     neige_list[:] = [flocon for flocon in neige_list if flocon["y"] < pyxel.height]
 
