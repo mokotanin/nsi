@@ -25,3 +25,9 @@ def sasie_utilisateur(taille):
     return combinaison_utilisateur
 
 def couleurBienPlace(jeu,saisie,tab):
+
+def couleurMalPlace(jeu,saisie,tab):
+
+def nbJetonPlace(jeu,saisie):
+
+def jeu():
