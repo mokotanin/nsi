@@ -1,28 +1,27 @@
 import pyxel
 import random
 
-neige_list = []
+pyxel.init(400,300,title="neige",fps=400)
+neige=[]
 
 def ajout_neige():
-    x = random.randint(0, pyxel.width)
-    y = 0
-    taille = random.randint(1, 3)
-    neige_list.append({"x": x, "y": y, "taille": taille})
-
+    global neige
+    if pyxel.frame_count % 30 == 0:
+        taille=random.randint(1,8)
+        x=random.randint(0,pyxel.width)
+        neige.append([x,0,taille])
 def update():
-    if pyxel.frame_count % 1 == 0:
-        ajout_neige()
-    
-    for flocon in neige_list:
-        flocon["y"] += flocon["taille"] * 0.5
-    
-    neige_list[:] = [flocon for flocon in neige_list if flocon["y"] < pyxel.height]
-
+    if pyxel.btnp(pyxel.KEY_Q):
+        pyxel.quit()
+    global neige
+    ajout_neige()
+    for flocon in neige:
+        flocon[1] += 0.1
+        if flocon[1]>pyxel.height:
+            neige.remove(flocon)
+    neige = [flocon for flocon in neige if flocon[1] < pyxel.height]
 def draw():
     pyxel.cls(0)
-    
-    for flocon in neige_list:
-        pyxel.pset(flocon["x"], flocon["y"], 7)
-
-pyxel.init(128, 128)
+    for flocon in neige:
+        pyxel.circ(flocon[0],flocon[1],flocon[2],7)
 pyxel.run(update, draw)
