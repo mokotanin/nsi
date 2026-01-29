@@ -66,7 +66,7 @@ def missile_intercontinental():
         pyxel.rect(m[0],m[1],2,5,8)
         
 class mechants():
-    def __init__(self) -> None:
+    def __init__(self):
         self.max=5
         self.limiteg=10
         self.limited=174
@@ -83,8 +83,9 @@ class mechants():
             i[0] += i[2]
             if i[0] <= self.limiteg or i[0] >= self.limited:
                 i[2]= -i[2]
+            pyxel.blt(i[0], i[1], 0, 0, 64, 16, 16)
 
-def mechant():
+"""def mechant():
     if len(ennemis) < ennemis_max:
         occuper_y = [e[1] for e in ennemis]
         libre_y = [y for y in range(16, 80, 16) if y not in occuper_y]
@@ -97,7 +98,7 @@ def mechant():
         
         if i[0] <= limiteg or i[0] >= limited:
             i[2] = -i[2]
-        pyxel.blt(i[0], i[1], 0, 0, 64, 16, 16)
+        pyxel.blt(i[0], i[1], 0, 0, 64, 16, 16)"""
 
 def collision():
     global missile, missile_epic, ennemis, score, explosions
@@ -166,15 +167,22 @@ def explosions_epic():
         else:
             explosions_epique.remove(exp)
 
-def update():
-    deplacement()
-    missiles()
-    missile_intercontinental()
-    mechant()
-    collision()
-    explosions_f()
-    explosions_epic()
-def draw():
-    pyxel.cls(0)
-    deplacement()
-pyxel.run(draw,update)
+class App:
+    def __init__(self):
+        self.mechant=mechants()
+    def update(self):
+        deplacement()
+        missiles()
+        missile_intercontinental()
+        #mechant()
+        collision()
+        explosions_f()
+        explosions_epic()
+        self.mechant.update()
+    def draw(self):
+        pyxel.cls(0)
+        deplacement()
+        self.mechant.draw()
+
+app = App()
+pyxel.run(app.draw, app.update)
