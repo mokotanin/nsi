@@ -64,6 +64,25 @@ def missile_intercontinental():
     for m in missile_epic:
         m[1]-=5
         pyxel.rect(m[0],m[1],2,5,8)
+        
+class mechants():
+    def __init__(self) -> None:
+        self.max=5
+        self.limiteg=10
+        self.limited=174
+    
+    def update(self):
+        if len(ennemis) < self.max:
+            self.busy_y=[e[1] for e in ennemis]
+            self.free_y=[y for y in range(16,80,16) if y not in self.busy_y]
+            if self.free_y:
+                ennemis.append([pyxel.rndi(10,174),random.choice(self.free_y),random.choice([-1,1])])
+
+    def draw(self):
+        for i in ennemis[:]:
+            i[0] += i[2]
+            if i[0] <= self.limiteg or i[0] >= self.limited:
+                i[2]= -i[2]
 
 def mechant():
     if len(ennemis) < ennemis_max:
