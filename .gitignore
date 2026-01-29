@@ -2,4 +2,8 @@ edupython13/
 .gitignore
 .venv/
 nsi.code-workspace/
+<<<<<<< HEAD
+/projets/space invader/Kanixian-main
+=======
 /projets/space invader/PROJET ENVAHISSEUR.docx
+>>>>>>> 277d9be5bb8c3ecdb50e6e573d16f14481e36424
