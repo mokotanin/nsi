@@ -1,7 +1,7 @@
 import pyxel
 import random
 
-pyxel.init(200,200,title="Space Invaders",quit_key=pyxel.KEY_F,fps=60)
+pyxel.init(200,200,title="Poules Invaders (très dangereux)",quit_key=pyxel.KEY_F,fps=60)
 pyxel.load("kani.pyxres")
 posx=90
 posy=160
@@ -18,6 +18,35 @@ ennemis_max=4
 cooldown_missile=0
 explosions=[]
 explosions_epique=[]
+
+"""class Vaisseau:
+    def __init__(self,x:int,y:int) -> None:
+        self.x=x
+        self.y=y
+        self.limited=174
+        self.limiteg=10
+        self.speed=1
+    
+    def deplacement(self):
+        if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
+            if self.x<self.limited:
+                self.x+=self.speed
+            elif pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_Q):
+                if self.x>self.limiteg:
+                    self.x-=self.speed
+    def draw(self) -> None:
+            if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
+                if self.x < self.limited:
+                    pyxel.blt(self.x, self.y, 0, 32, 16, 16, 16)
+                else:
+                    pyxel.blt(self.x, self.y, 0, 16, 16, 16, 16)
+            elif pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_Q):
+                if self.x > self.limiteg:
+                    pyxel.blt(self.x, self.y, 0, 48, 16, 16, 16)
+                else:
+                    pyxel.blt(self.x, self.y, 0, 16, 16, 16, 16)
+            else:
+                pyxel.blt(self.x, self.y, 0, 16, 16, 16, 16)"""
 
 def deplacement():
     global posx
@@ -36,7 +65,7 @@ def deplacement():
     else:
         pyxel.blt(posx,posy,0,16,16,16,16)
 
-def missiles():
+"""def missiles():
     global missile
     global cooldown_missile
     missilex=posx+7
@@ -49,8 +78,48 @@ def missiles():
         cooldown_missile-=1
     for m in missile:
         m[1]-=5
-        pyxel.rect(m[0],m[1],2,5,10)
+        pyxel.rect(m[0],m[1],2,5,10)"""
+
+class missiless():
+    def __init__(self,):
+        global posx,posy,score,explosions
+        self.missile=[]
+        self.cooldown=0
+        self.x=posx+7
+        self.y=posy
+    def update(self):
+        if pyxel.btnr(pyxel.KEY_SPACE) and self.cooldown==0:
+            self.missile.append([self.x,self.y])
+            pyxel.play(0,0)
+            self.cooldown=60
+        if self.cooldown>0:
+            self.cooldown-=1
+    def draw(self):
+        for m in self.missile:
+            m[1]-=5
+            pyxel.rect(m[0],m[1],2,5,10)
+
+"""class missile_epicsmr():
+    def __init__(self) -> None:
+        self.missile_epic=[]
+        self.vitesse=1 # à changer aussi
+        self.x=x+7 # non
+        self.y=90
+
+    def update(self):
+        if pyxel.btn(pyxel.KEY_R):
+            self.missile_epic.append([self.x,self.y])
+            self.vitesse=2
+        else:
+            vitesse=1
     
+    def draw(self):
+        for m in self.missile_epic:
+            m[1]-=5
+            pyxel.rect(m[0],m[1],2,5,8)"""
+
+
+
 def missile_intercontinental():                                                
     global missile_epic
     global vitesse
@@ -169,20 +238,43 @@ def explosions_epic():
 
 class App:
     def __init__(self):
+        
+        # toutes les classes
         self.mechant=mechants()
+        self.missile=missiless()
+        #self.missile_epicc=missile_epicsmr()
+
+        # toutes les variables globales
+        self.x=90
+        self.posy=160
+        self.missile_epic=[]
+        self.limited=174
+        self.limiteg=10
+        self.vitesse=1
+        self.points=0
+        self.score=0
+        self.ennemis=[]
+        self.ennemis_max=4
+        self.cooldown_missile=0
+        self.explosions=[]
+        self.explosions_epique=[]
     def update(self):
         deplacement()
-        missiles()
+        #missiles()
+        self.missile.update()        
         missile_intercontinental()
         #mechant()
         collision()
         explosions_f()
         explosions_epic()
         self.mechant.update()
+        #self.missile_epicc.update()
     def draw(self):
         pyxel.cls(0)
         deplacement()
         self.mechant.draw()
+        self.missile.draw()
+        #self.missile_epicc.draw()
 
 app = App()
 pyxel.run(app.draw, app.update)
