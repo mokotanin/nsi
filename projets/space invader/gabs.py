@@ -29,7 +29,7 @@ limite_bas = 220
 
 # Paramètres de mouvement
 vitesse = 1
-multiplicateur_vitesse = 0.1
+multiplicateur_vitesse = 0.01
 
 # État du joueur
 vies = 3
@@ -194,7 +194,7 @@ def maj_projectiles_ennemis():
     # Mouvement et affichage des projectiles ennemis
     for projectile in projectiles_ennemis:
         projectile[1] += 1
-        pyxel.blt(projectile[0], projectile[1], 0, 0, 32, 10, 10, 0)
+        pyxel.blt(projectile[0], projectile[1], 0, 6, 197, 4, 6)
 
 
 # ============================================================================
@@ -351,8 +351,12 @@ def afficher_interface():
     global combo_timer, combo, couleur_combo_texte, score, vies, état
     
     # Affichage des vies restantes
-    for i in range(vies):
-        pyxel.blt(5 + i * 5, 25, 0, 0, 3, 10, 10, 0)
+    if vies==3:
+        pyxel.blt(5,5,0,0,3,20,10)
+    elif vies==2:
+        pyxel.blt(5,5,0,5,3,20,10)
+    elif vies==1:
+        pyxel.blt(5,5,0,12,3,20,10)
 
     # Gestion de la fin de partie
     if vies == 0:
@@ -401,10 +405,9 @@ def afficher_meilleur_score():
         ]
 
     # Affichage du score et du combo
-    pyxel.text(5, 5, "SCORE=" + str(score), 3)
     pyxel.text(5, 15, "COMBO=" + str(combo), couleur_combo_texte)
 
-    # Décrément du timer du combo
+    # Timer du combo (à voir l'utilité)
     if combo_timer > 0:
         combo_timer -= 1
     # Réinitialisation du combo si le timer expire
@@ -485,5 +488,4 @@ def dessiner_jeu():
 # ============================================================================
 # LANCEMENT DU JEU
 # ============================================================================
-# Boucle principale: dessiner() pour l'affichage, mettre_a_jour() pour la logique
 pyxel.run(dessiner, mettre_a_jour)
