@@ -13,21 +13,29 @@ vitesse=1
 points=0
 vies=3
 score=0
+meilleur_score=0
 ennemis=[]
 ennemis_max=4
 cooldown_missile=0
 explosions=[]
 explosions_epique=[]
+renardcanardé=[]
 missile_e=[]
 cooldown_e=0
 monsieur_renard_x=0
 monsieur_renard_y=208
-player_hit_timer=0
-explosions_omelettee=[]
 état=0
+frame=0
+duree=30
+x = 200
+y = 92
+bouge = False
+last_trigger = -1
+
 def accueil():
     pyxel.blt(75,70,0,0,224,46,16)
     pyxel.text(68,90,'Press E to start',15)
+
 def deplacement():
     global posx
     if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
@@ -45,7 +53,7 @@ def deplacement():
     else:
         pyxel.blt(posx,posy,0,monsieur_renard_x,monsieur_renard_y,16,16)
 
-def missiles():
+def missiles(): # fonction des missiles tirés par le renard
     global missile
     global cooldown_missile
     missilex=posx+7
@@ -60,8 +68,7 @@ def missiles():
         m[1]-=5
         pyxel.rect(m[0],m[1],2,5,10)
 
-
-def missile_intercontinental():                                                
+def missile_intercontinental(): # fonction du missile rayon laser tiré par le renard
     global missile_epic
     global vitesse
     missilex=posx+7
@@ -75,7 +82,7 @@ def missile_intercontinental():
         m[1]-=5
         pyxel.rect(m[0],m[1],2,5,8)
 
-def mechant():
+def mechant(): # fonction de déplacement des ennemis et de leur affichage
     if len(ennemis) < ennemis_max:
         occuper_y = [e[1] for e in ennemis]
         libre_y = [y for y in range(16, 80, 16) if y not in occuper_y]
@@ -90,7 +97,7 @@ def mechant():
             i[2] = -i[2]
         pyxel.blt(i[0], i[1], 0, 0, 176, 16, 16)
 
-def missiles_mechant():
+def missiles_mechant(): # fonction des oeufs tirés par les ennemis
     global missile_e, cooldown_e, ennemis
     if ennemis:
         shooter = random.choice(ennemis)
@@ -104,12 +111,12 @@ def missiles_mechant():
         cooldown_e -= 1
     for e in missile_e:
         e[1] += 1
-        pyxel.rect(e[0], e[1], 2, 5, 7)
+        pyxel.blt(e[0], e[1], 0, 6, 197,4,6)
 
-def collision():
-    global missile, missile_epic, ennemis, score, explosions, player_hit_timer
+def collision(): # fonction de collision entre les missiles du joueur et les ennemis, et entre les missiles des ennemis et le joueur
+    global missile, missile_epic, ennemis, score, explosions, player_hit_timer, combo, combo_timer, poule_de_la_vitesse, vies
     
-    for m in missile[:]:
+    for m in missile[:]: # quand le renard touche un ennemi avec un missile classique
         for e in ennemis[:]:
             if (m[0] < e[0] + 16 and 
                 m[0] + 2 > e[0] and 
@@ -127,7 +134,7 @@ def collision():
                 pyxel.play(1, 1)
                 score += 1
                 break
-    for mp in missile_epic[:]:
+    for mp in missile_epic[:]: # quand le renard touche un ennemi avec un missile intercontinental
         for e in ennemis[:]:
             if (mp[0] < e[0] + 16 and 
                 mp[0] + 2 > e[0] and 
@@ -144,16 +151,16 @@ def collision():
                 score += 5
                 break
     
-    for me in missile_e[:]:
+    for me in missile_e[:]: # quand un oeuf touche le renard
         if (me[0]<posx+16 and me[0]+2>posx and
             me[1]<posy+16 and me[1]+5>posy):
 
-            explosions_omelettee.append([posx, posy, 0])
+            renardcanardé.append([posx,posy,0])
 
             if me in missile_e:
                 missile_e.remove(me)
             pyxel.play(2, 2)
-            score -=1000
+            vies-=1
             break
 
 def explosions_f():
@@ -186,37 +193,81 @@ def explosions_epic():
         else:
             explosions_epique.remove(exp)
 
-def explosions_omelette():
-    global explosions_omelette
+def renardcanarde():
+    global renardcanardé
 
-    for kfc in explosions_omelettee[:]:
-        frame = kfc[2]
-        duree=400
-
+    for exp in renardcanardé[:]:
+        frame=exp[2]
+        duree=30
+    
         if frame < duree:
-            oeuf_index = frame // 5
-            oeuf_x = oeuf_index * 16
-            pyxel.blt(kfc[0], kfc[1], 0, oeuf_x, 224, 16, 16)
-            kfc[2] += 1
+            pyxel.blt(exp[0],exp[1],0,16,208,16,16)
+            exp[2]+=1
         else:
-            explosions_omelettee.remove(kfc)
+            renardcanardé.remove(exp)
 
+def VIES():
+    global vies,état,score
+    if vies==3:
+        pyxel.blt(5,5,0,0,3,20,10)
+    elif vies==2:
+        pyxel.blt(5,5,0,5,3,20,10)
+    elif vies==1:
+        pyxel.blt(5,5,0,12,3,20,10)
+    elif vies==0:
+        état=2
+        vies=3
+        score=0
 
-def variables():
-    pyxel.text(5,5,'SCORE='+str(score),3)
+def mort():
+    pyxel.blt(63,70,0,0,240,80,16)
+    pyxel.text(65,130,'Press E to restart',10)
+
+def SCORE():
+    pyxel.text(140,5,'SCORE='+str(score),3)
+
+def MEILLEURSCORE():
+    global score, meilleur_score
+    if meilleur_score>=score:
+        pyxel.text(50,5,'MEILLEUR SCORE='+str(meilleur_score),3)
+    elif meilleur_score<score:
+        meilleur_score=score
+        pyxel.text(50,5,'MEILLEUR SCORE='+str(meilleur_score),3)
+
+'''def kfcbonus():
+    global score,x,y,bouge,last_trigger
+    current_trigger = score // 12
+    if (score % 12 == 0 and current_trigger != last_trigger and not bouge):
+        bouge = True
+        x = 200  
+        last_trigger = current_trigger
+        if bouge:
+            x -= 2
+            if x < -16:  
+                bouge = False
+        if bouge:
+            pyxel.blt(x,y,0,33,162,16,16)'''
+
 def update():
     global état
     if état==0:
         if pyxel.btnp(pyxel.KEY_E):
             état=1
-        elif état==1:
+    elif état==1:
             update_jeu()
+    elif état==2:
+        if pyxel.btnp(pyxel.KEY_E):
+            état=1
+
 def draw():
     pyxel.cls(0)
     if état==0:
         accueil()
     elif état==1:
         draw_jeu()
+    elif état==2:
+        mort()
+
 def update_jeu():
     deplacement()
     missiles()
@@ -226,8 +277,10 @@ def update_jeu():
     collision()
     explosions_f()
     explosions_epic()
-    explosions_omelette()
-
+    renardcanarde()
+    VIES()
+    MEILLEURSCORE()
+    #kfcbonus()
 def draw_jeu():
     deplacement()
     missiles()
@@ -237,6 +290,9 @@ def draw_jeu():
     collision()
     explosions_f()
     explosions_epic()
-    explosions_omelette()
-    variables()
+    renardcanarde()
+    SCORE()
+    VIES()
+    MEILLEURSCORE()
+    #kfcbonus()
 pyxel.run(draw,update)

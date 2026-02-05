@@ -5,12 +5,12 @@
 [x] mouvement ennemis
 [x] missiles ennemis
 [x] impact missile ennemis
-[] compter des points
+[x] compter des points
 [x] afficher des nouveaux ennemis
-[] faire descendre les ennemis
-[] mouvement accéléré des ennemis
+[x] faire descendre les ennemis
+[x] mouvement accéléré des ennemis
 [x] impact ennemis sur vaisseau
-[] code optimisé
-[] commentaires
-[] code propre
-[] qualité du jeu
+[x] code optimisé
+[x] commentaires
+[x] code propre
+[x] qualité du jeu
