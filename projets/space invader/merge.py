@@ -28,6 +28,11 @@ combo=0
 couleur_combotexte=7
 combo_timer=0
 poule_de_la_vitesse=0.1
+état=0
+
+def accueil():
+    pyxel.blt(75,70,0,0,224,46,16)
+    pyxel.text(68,90,'Press E to start',15)
 
 def deplacement():
     global posx
@@ -107,7 +112,6 @@ def missiles_mechant():
     for e in missile_e:
         e[1] += 1
         pyxel.rect(e[0], e[1], 2, 5, 7)
-        #pyxel.blt(e[0],e[1],0,0,192,16,16)
 
 def collision():
     global missile, missile_epic, ennemis, score, explosions, player_hit_timer, combo, combo_timer, poule_de_la_vitesse
@@ -199,7 +203,7 @@ def explosions_epic():
             explosions_epique.remove(exp)
 
 def explosions_omelette():
-    global explosions_omelette
+    global explosions_omelettee
 
     for kfc in explosions_omelettee[:]:
         frame = kfc[2]
@@ -242,7 +246,7 @@ def variables():
     else:
         combo = 0
 
-def update():
+def update_jeu():
     deplacement()
     missiles()
     missile_intercontinental()
@@ -252,10 +256,32 @@ def update():
     explosions_f()
     explosions_epic()
     explosions_omelette()
+
+def draw_jeu():
+    deplacement()
+    missiles()
+    missile_intercontinental()
+    mechant()
+    missiles_mechant()
+    collision()
+    explosions_f()
+    explosions_epic()
+    explosions_omelette()
+    variables()
+
+def update():
+    global état
+    if état==0:
+        if pyxel.btnp(pyxel.KEY_E):
+            état=1
+    elif état==1:
+        update_jeu()
+
 def draw():
     pyxel.cls(0)
-    deplacement()
-    variables()
-    missiles_mechant()
-    explosions_omelette()
+    if état==0:
+        accueil()
+    elif état==1:
+        draw_jeu()
+
 pyxel.run(draw,update)

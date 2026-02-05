@@ -1,0 +1,16 @@
+[x] mouvement gauche
+[x] groupe d'ennemis
+[x] lancer missile
+[x] impact missile
+[x] mouvement ennemis
+[x] missiles ennemis
+[x] impact missile ennemis
+[] compter des points
+[x] afficher des nouveaux ennemis
+[] faire descendre les ennemis
+[] mouvement accéléré des ennemis
+[x] impact ennemis sur vaisseau
+[] code optimisé
+[] commentaires
+[] code propre
+[] qualité du jeu
