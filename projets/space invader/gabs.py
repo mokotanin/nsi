@@ -407,7 +407,7 @@ def afficher_meilleur_score():
     # Affichage du score et du combo
     pyxel.text(5, 15, "COMBO=" + str(combo), couleur_combo_texte)
 
-    # Timer du combo (à voir l'utilité)
+    # Timer du combo
     if combo_timer > 0:
         combo_timer -= 1
     # Réinitialisation du combo si le timer expire
@@ -488,4 +488,4 @@ def dessiner_jeu():
 # ============================================================================
 # LANCEMENT DU JEU
 # ============================================================================
-pyxel.run(dessiner, mettre_a_jour)
+pyxel.run(dessiner, mettre_a_jour)       #Monsieur on sait que les commentaires pourrait faire un peu suspicieux d'utilisation d'ia, mais on peut vous assurer que c'est juste Tristan qui était très déterminé à faire quelque chose de propre.
