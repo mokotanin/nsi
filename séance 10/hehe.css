@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,572;1,14..32,572&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 :root {
   --nooby-bg-0-dark: #1e2021;
   --nooby-bg-1-dark: #282828;
@@ -61,4 +62,137 @@
   --nooby-accent-aqua-light: #4b7a5d;
   --nooby-accent-blue-light: #45707a;
   --nooby-accent-purple-light: #945e80;
+}
+html {
+    background-color: var(--nooby-bg-0-dark);
+    font-family: 'Noto Sans', sans-serif;
+    margin: 20px;
+    color: white
+}
+.music-bg {
+position: fixed;
+inset: 0;
+
+background-image: url("data:image/svg+xml;utf8,\<svg xmlns='http://www.w3.org/2000/svg' width='80' height='120' viewBox='0 0 80 120'>\<text x='0' y='100' font-size='100' fill='white' opacity='0.15'>𝄞</text>\</svg>");
+
+background-repeat: repeat;
+background-size: 130px 100px;
+
+animation: moveNotes 20s linear infinite;
+}
+.music-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: 200px 260px;
+    opacity: 0.07;
+    animation: moveNotes 60s linear infinite reverse;
+    animation: noise 0.3s infinite;
+
+}
+
+@keyframes moveNotes {
+    from { background-position: 0 0; }
+    to { background-position: 600px -600px;}
+}
+span[class="rime"] {
+    background-color: var(--nooby-bg-diff-red-dark);
+    border-radius: 4px;
+    }
+div[class="strophe"], 
+div[class="strophe first"],
+div[class="strophe last"] {
+    transition: 0.3s;
+    background-color: #0d3138ae;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    backdrop-filter: blur(4px);
+    max-width: 500px;
+    
+
+}
+div[class="strophe first"] {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+div[class="strophe last"] {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+div[class="strophe"]:hover, 
+div[class="strophe first"]:hover,
+div[class="strophe last"]:hover {
+    transition: 0.3s;
+    background-color: #15505c;
+    backdrop-filter: blur(4px);
+}
+div[class="strophe"]:hover span[class="rime"],
+div[class="strophe first"]:hover span[class="rime"],
+div[class="strophe last"]:hover span[class="rime"] {
+    transition: 0.3s;
+    background-color: #72211e;
+}
+div[class="strophe first"] {
+    padding-top: 20px;
+}
+div[class="strophe last"] {
+    padding-bottom: 20px;
+}
+a {
+    transition: 0.3s;
+    display: block;
+    color: var(--nooby-accent-blue-light);
+    text-decoration: none;
+}
+a:hover {
+    transition-duration: 0.3s;
+    text-decoration: underline;
+    color: var(--nooby-accent-blue-dark);
+}
+div[class="top-link"] {
+    background-color: rgba(29, 29, 29, 0.807);
+    padding: 10px;
+    max-width: 150px;
+    backdrop-filter: blur(4px);
+    animation: noise 0.3s infinite;
+    border-radius: 10px;
+}
+.show-photo {
+    margin-top: 12px;
+    padding: 8px 14px;
+    background-color: var(--nooby-accent-blue-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.show-photo:hover {
+    background-color: var(--nooby-accent-blue-light);
+}
+.photo-container {
+    margin-top: 12px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-6px);
+    transition: max-height 300ms ease, opacity 300ms ease, transform 300ms ease;
+    pointer-events: none;
+}
+.photo-container img {
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    background-color: rgba(29, 29, 29, 0.807);
+    padding: 10px;
+    backdrop-filter: blur(4px);
+    animation: noise 0.3s infinite;
+    border-radius: 10px;
+}
+.photo-container.visible {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
