@@ -1,10 +1,6 @@
+![html](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-4.png) ![css](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-5.png) ![js](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-2.png) 
 # séance 10
 
-# dépendances
+1. [code(Sic.)](./code(Sic)/)
 
-```command prompt (admin)
-mklink "C:\xampp\htdocs\NAME.php" "C:\PATH\TO\SOURCE.php"
-```
-
-- [PHP](https://www.php.net/)
-- [XAMPP](https://www.apachefriends.org/fr/index.html)
+-# assez vide...
