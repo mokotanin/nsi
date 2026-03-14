@@ -1,6 +1,6 @@
-let prenom = "Zoé", nom = "Dollé";
+let prenom = "Jaquelin", nom = "Noai";
 let age = 17;
-let anniversaire = "30 juillet"
+let anniversaire = "89 novembre"
 let homme = true;
 let sexe = "un homme"
 let n = null;
@@ -15,11 +15,11 @@ let heure = prompt("Heure entière")
 //alert("J'ai " + age + " ans et l'année prochaine j'aurai " + (age+1) + " ans le " + anniversaire)
 //alert("IMAGINE t'habite au " + adresse)
 
-if (heure>0 && heure<12)
+if (heure<12)
     alert("c'est la matin")
-else if (heure>12 && heure<18)
+else if (heure<0 || heure>24)
+    alert("invalide (ET PAS LA RUE HAHAHAHAHAHAHA (avenue des invalides ta capté hehe... c'est pas rue mais vas-y t'a capté <3")
+else if (heure<18)
     alert("c'est l'après-midi")
-else if (heure>18)
+else
     alert("c'est le soir")
-else if (heure<0 && heure>24)
-    alert("invalide (ET PAS LA RUE HAHAHAHAHAHAHA")
