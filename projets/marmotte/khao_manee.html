@@ -1,12 +1,21 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8" />
-    <title>Compteur de clics</title>
-    <script src="sokoke.js" async></script>
+    <title>Mon jeu</title>
     <link rel="stylesheet" href="laperm.css" type="text/css" />
+    <script src="sokoke.js"></script>
   </head>
   <body>
-    <button>oui</button>
+    <button id="theme-btn" onclick="toggleTheme()">⚙️</button>
+    <select id="theme-selector" style="display: none;">
+      <option value="">par défault</option>
+      <option value="angel">thème angel</option>
+    </select>
+    <h1 id="story">Tu es dans une forêt. Que fais-tu ?</h1>
+
+    <div class="buttons">
+      <button onclick="choix(0)">Aller à gauche</button>
+      <button onclick="choix(1)">Aller à droite</button>
+    </div>
   </body>
 </html>
