@@ -9,7 +9,7 @@
   --maintitle: #1565c0;
   --boxtitle: #1976d2;
   --alttitle: #000;
-  --bodybg: #ffffff;
+  --bodybg: #ffffffc6;
   --boxbg: #f5f5f5;
   --tabbg: #e0e0e0;
   --secbg: #fafafa;
@@ -22,11 +22,16 @@
   --noticebg: #e3f2fd;
   --noticeborder: #1976d2;
   --helpbutton: #00bcd4;
+  --defaulturl: none;
 }
 
 body {
   background-color: var(--bodybg);
   color: var(--maintext);
+  background-image: var(--defaulturl);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,14 +46,23 @@ body {
   margin: 0;
 }
 
-.buttons {
-  background-color: var(--boxbg);
-  color: var(--maintext);
+article {
   display: flex;
-  gap: 10px; /* espace entre les boutons */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background-color: var(--boxbg);
+  width: calc(100vw - 50px);
+  height: calc(100vh - 50px);
+  box-sizing: border-box;
 }
 
-div[class="buttons"].btn2{
-  color: red;
-  background-color: red;
+.buttons {
+  background-color: transparent;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* espace entre les boutons */
 }
