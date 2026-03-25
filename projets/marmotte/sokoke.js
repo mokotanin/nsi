@@ -1,50 +1,62 @@
-/* choix du thème */
-function changerTheme(event) {
-  const theme = event.target.value;
-  document.body.className = theme;
-  localStorage.setItem("theme", theme);
-}
-
-function chargerTheme() {
-  const theme = localStorage.getItem("theme") || "";
-  document.body.className = theme;
-  if (document.getElementById("theme-selector")) {
-    document.getElementById("theme-selector").value = theme;
-  }
-}
-
 const jeu = {
   0: {
-    t: "Tu es dans une forêt. Que fais-tu ?",
-    c: [
-      { t: "Aller à gauche", next: 1 },
-      { t: "Aller à droite", next: 2 },
-    ],
+    t: "_w4x.2",
+    c: [{ t: "Bonjour", next: 1 }],
   },
   1: {
-    t: "Une maison apparaît ! Qu'est-ce que tu fais ?",
+    t: "Pour une expérience complète, montez le volume.",
     c: [
-      { t: "Entrer dans la maison", next: 3 },
-      { t: "Continuer tout droit", next: 4 },
+      { t: "J'ai augmenté le son", next: 2 },
+      { t: "Non merci, je fais sans", next: 3 },
     ],
   },
   2: {
-    t: "Tu trouves un trésor ! 💰 Bravo, tu as gagné !",
-    c: [{ t: "Stylé", next: 5 }],
+    t: "Voudriez-vous bien vérifier cela ?",
+    c: [
+      { t: "Oui", next: 7 },
+      { t: "Non merci", next: 8 /* bouger le bouton partout */},
+    ],
   },
   3: {
-    t: "Tu as été attaqué par un ours ! 🐻 Jeu terminé.",
-    c: [{ t: "Recommencer", next: 0 }],
+    t: "Pour une expérience complète, montez le volume.",
+    c: [
+      { t: "J'ai augmenté le son", next: 2 },
+      { t: "Vous êtes sûr de vous ?", next: 4 },
+    ],
   },
   4: {
-    t: "Tu trouves une rivière et tu t'échappes. Tu as gagné ! 🎉",
-    c: [{ t: "Recommencer", next: 0 }],
+    t: "Pour une expérience complète, montez le volume.",
+    c: [
+      { t: "J'ai augmenté le son", next: 2 },
+      { t: "Vraiment sûr ??", next: 5 },
+    ],
   },
   5: {
-    t: "Et maintenant ?",
+    t: "Pour une expérience complète, montez le volume.",
     c: [
-      { t: "Marcher", next: 3 },
-      { t: "Stop", next: 2 },
+      { t: "J'ai augmenté le son", next: 2 },
+      { t: "VRAIMENT SÛR ?", next: 6 },
+    ],
+  },
+  6: {
+    t: "Pour une expérience complète, montez le volume.",
+    c: [{ t: "J'ai augmenté le son", next: 2 }],
+  },
+  7: {
+    t: "Quel animal produit ce son ?",
+    c: [
+      { t: "Un chat", next: 9 },
+      { t: "Un orang-outan", next: 9 },
+      { t: "Un canard", next: 9 },
+      { t: "Une vache", next: 10 },
+      { t: "Un mammouth", next: 9 },
+    ],
+  },
+  9: {
+    t: "Vous mentez ?",
+    c: [
+      { t: "Oui", next: 3 },
+      { t: "Non", next: 0 },
     ],
   },
 };
@@ -72,21 +84,5 @@ function afficherScenario() {
   });
 }
 
-function toggleTheme() {
-  const selector = document.getElementById("theme-selector");
-  if (selector.style.display === "none") {
-    selector.style.display = "block";
-  } else {
-    selector.style.display = "none";
-  }
-}
-
 // Initialiser le jeu au chargement
-window.onload = function () {
-  chargerTheme();
-  afficherScenario();
-  const selector = document.getElementById("theme-selector");
-  if (selector) {
-    selector.addEventListener("change", changerTheme);
-  }
-};
+window.onload = afficherScenario;

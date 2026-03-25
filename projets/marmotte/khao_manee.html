@@ -1,21 +1,30 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Mon jeu</title>
     <link rel="stylesheet" href="laperm.css" type="text/css" />
     <script src="sokoke.js"></script>
   </head>
   <body>
-    <button id="theme-btn" onclick="toggleTheme()">⚙️</button>
-    <select id="theme-selector" style="display: none;">
-      <option value="">par défault</option>
-      <option value="angel">thème angel</option>
-    </select>
-    <h1 id="story">Tu es dans une forêt. Que fais-tu ?</h1>
+    <h1 id="story"></h1>
 
     <div class="buttons">
-      <button onclick="choix(0)">Aller à gauche</button>
-      <button onclick="choix(1)">Aller à droite</button>
+      <button onclick="choix(1)"></button>
+      <button id="btn2" onclick="choix(2)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <button onclick="choix(4)"></button>
+      <audio controls autoplay>
+        <source src="meu.mp3" type="audio/mpeg">
+      </audio>
     </div>
   </body>
 </html>

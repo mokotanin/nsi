@@ -24,32 +24,6 @@
   --helpbutton: #00bcd4;
 }
 
-body.angel {
-  --maintext: #ddd;
-  --grayedout: #37a;
-  --standout: #e44;
-  --link: #7bd;
-  --statok: #0c0;
-  --statnok: #c00;
-  --footer: #247;
-  --maintitle: #135;
-  --boxtitle: #258;
-  --alttitle: #fff;
-  --bodybg: #000;
-  --boxbg: rgba(7, 28, 48, 0.737255);
-  --tabbg: #012;
-  --secbg: #0d2741;
-  --secborder: #35a;
-  --border: #258;
-  --diffadd: #354;
-  --diffdel: #534;
-  --warnbg: #534;
-  --warnborder: #c00;
-  --noticebg: #052d2e;
-  --noticeborder: #227688;
-  --helpbutton: #06ffc5;
-}
-
 body {
   background-color: var(--bodybg);
   color: var(--maintext);
@@ -74,34 +48,7 @@ body {
   gap: 10px; /* espace entre les boutons */
 }
 
-#theme-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 5px;
-  padding: 10px 12px;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 999;
-}
-
-#theme-btn:hover {
-  opacity: 0.8;
-}
-
-#theme-selector {
-  position: fixed;
-  top: 60px;
-  right: 20px;
-  padding: 8px 12px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  z-index: 999;
+div[class="buttons"].btn2{
+  color: red;
+  background-color: red;
 }
