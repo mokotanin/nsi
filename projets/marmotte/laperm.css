@@ -26,9 +26,9 @@
 }
 
 body {
+  background-image: var(--defaulturl);
   background-color: var(--bodybg);
   color: var(--maintext);
-  background-image: var(--defaulturl);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -65,4 +65,32 @@ article {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px; /* espace entre les boutons */
+}
+
+.mainBar {
+  box-sizing: border-box;
+  width: 70vw;
+  max-width: 1000px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 0;
+  justify-content: center;
+  display: none;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#progressBar {
+  overflow: hidden;
+  background: #111111;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+}
+
+#bar {
+  width: 0;
+  height: 100%;
+  transition: width 600ms;
+  background-color: #1976d2;
 }

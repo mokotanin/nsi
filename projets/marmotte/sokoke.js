@@ -58,6 +58,7 @@ const jeu = {
   7: {
     t: "Quel animal produit ce son ?",
     audio: "meu.mp3",
+    audioVolume: 0.35,
     c: [
       { t: "Un chat", next: 9 },
       { t: "Un orang-outan", next: 9 },
@@ -92,12 +93,18 @@ const jeu = {
     c: [
       { t: "Qu'est-ce donc cela ?", next: 11 },
       { t: "Intriguant...", next: 11 },
-      { t: "Pas si surprenant", next: 12 },
     ],
   },
   11: {
-    t: "Insérer explication.",
+    t: "Ce programme sert à déterminer si un pourcentage de la population mondiale possède un caractère psychologique spécifique recherché par ██████.",
     c: [{ t: "D'accord", next: 13 }],
+  },
+  13: {
+    t: "Vos réponses sont enregistrées",
+    c: [
+      { t: "Entendu", next: 18 },
+      { t: "Et mes données ?", next: 16 },
+    ],
   },
   12: {
     t: "これは現実じゃない。最初から存在していなかった。",
@@ -106,7 +113,33 @@ const jeu = {
     border: "#ffc9c5",
     boxbg: "#b94562bd",
     music: "yume",
-    url: "./..png",
+    // url: "./..png",
+  },
+  16: {
+    t: "Vos données sont sécurisées et stockées sur les serveurs de la société hubiC, fournie par ██████.",
+    c: [
+      { t: "Compris", next: 18 },
+      { t: "Cela me semble sûr", next: 18 },
+      { t: "Et le RGPD ?", next: 17 },
+    ],
+  },
+  17: {
+    t: "Aucune loi n'est en vigueur à ██████.",
+    bg: "#7c7c7c",
+    boxbg: "#535353d8",
+    border: "#c4c4c4",
+    c: [{ t: "Ah...", next: 18 }],
+    music: "vie_privee",
+  },
+  18: {
+    t: "Merci pour votre compréhension. _w4x.2 peut à présent commencer.",
+  },
+  19: {
+    t: "Vous avez deux choix.",
+    c: [
+      { t: "1", next: 20 },
+      { t: "2", next: 21 },
+    ],
   },
 };
 
@@ -115,7 +148,8 @@ let badEnding9 = false;
 
 const musiques = {
   intro: { src: "for_the_fans.mp3", volume: 0.05 },
-  yume: { src: "きえない_きずあと.mp3", volume: 0.05},
+  yume: { src: "きえない_きずあと.mp3", volume: 0.05 },
+  vie_privee: { src: "どこかへつづくもり〜森の世界〜.mp3", volume: 0.1 },
 };
 
 const lecteurMusique = new Audio();
@@ -123,6 +157,9 @@ lecteurMusique.loop = true;
 
 let musiqueCourante = null;
 let audioDebloque = false;
+let progressionInterval = null;
+let progressionValeur = 0;
+const volumeEffetsDefaut = 0.35;
 
 function changerFond(couleur) {
   document.documentElement.style.setProperty("--bodybg", couleur);
@@ -166,6 +203,54 @@ function deplacerBouton(button) {
   button.style.top = Math.random() * 80 + "vh";
 }
 
+function reinitialiserProgression() {
+  if (progressionInterval) {
+    clearInterval(progressionInterval);
+    progressionInterval = null;
+  }
+
+  progressionValeur = 0;
+  const barre = document.getElementById("bar");
+  const container = document.getElementById("progressContainer");
+
+  if (barre) {
+    barre.style.width = "0%";
+  }
+
+  if (container) {
+    container.style.display = "none";
+    container.setAttribute("aria-hidden", "true");
+  }
+}
+
+function demarrerProgressionScenario18() {
+  const barre = document.getElementById("bar");
+  const container = document.getElementById("progressContainer");
+  if (!barre || !container) return;
+
+  if (progressionInterval) return;
+
+  container.style.display = "flex";
+  container.setAttribute("aria-hidden", "false");
+  barre.style.width = "0%";
+  progressionValeur = 0;
+
+  progressionInterval = setInterval(() => {
+    progressionValeur += 25;
+
+    if (progressionValeur >= 100) {
+      progressionValeur = 100;
+      barre.style.width = `${progressionValeur}%`;
+      clearInterval(progressionInterval);
+      progressionInterval = null;
+      choix(19);
+      return;
+    }
+
+    barre.style.width = `${progressionValeur}%`;
+  }, 1500);
+}
+
 function afficherScenario() {
   const scenario = jeu[scenarioActuel];
   const storyDiv = document.getElementById("story");
@@ -196,6 +281,7 @@ function afficherScenario() {
   // Si un son existe
   if (scenario.audio) {
     const audio = new Audio(scenario.audio);
+    audio.volume = scenario.audioVolume ?? volumeEffetsDefaut;
     audio.play();
   }
 
@@ -204,7 +290,13 @@ function afficherScenario() {
     jouerMusique(scenario.music);
   }
 
-  scenario.c.forEach((choixOption, index) => {
+  if (scenarioActuel === 18) {
+    demarrerProgressionScenario18();
+  } else {
+    reinitialiserProgression();
+  }
+
+  (scenario.c ?? []).forEach((choixOption, index) => {
     const button = document.createElement("button");
     button.id = "btn" + (index + 1); // Simplicité pour sélectionner un bouton en CSS
     button.textContent = choixOption.t;
