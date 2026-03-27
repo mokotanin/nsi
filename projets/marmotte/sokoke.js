@@ -1,3 +1,5 @@
+//TODO file explorer type interface and the two html are pseudo-tools to unlock a locked folder to finish the "game"
+
 const jeu = {
   0: {
     t: "_w4x.2",
@@ -91,13 +93,8 @@ const jeu = {
   10: {
     t: "Bienvenue dans _w4x.2",
     c: [
-      { t: "Qu'est-ce donc cela ?", next: 11 },
-      { t: "Intriguant...", next: 11 },
+      { t: "Bien", next: 13 },
     ],
-  },
-  11: {
-    t: "Ce programme sert à déterminer si un pourcentage de la population mondiale possède un caractère psychologique spécifique recherché par ██████.",
-    c: [{ t: "D'accord", next: 13 }],
   },
   13: {
     t: "Vos réponses sont enregistrées",
@@ -137,9 +134,16 @@ const jeu = {
   19: {
     t: "Vous avez deux choix.",
     c: [
-      { t: "1", next: 20 },
-      { t: "2", next: 21 },
+      { t: "1", next: 100 },
+      { t: "2", next: 200 },
+      { t: 3, next: 12 },
     ],
+  },
+  100: {
+    t: "Insérer scénario 1",
+  },
+  200: {
+    t: "Insérer scénario 2",
   },
 };
 
