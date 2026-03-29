@@ -20,8 +20,10 @@ function hide(dv) {
 
 function show(dv) {
   const fileCell = document.querySelector(`td[data-value="${dv}"]`)
+  const fileRow = fileCell?.closest("tr")
 
-  if (fileCell) fileCell.classList.remove("is-hidden")
+  if (fileCell) fileCell.classList.remove("is-hidden", "hidden-row")
+  if (fileRow) fileRow.classList.remove("is-hidden")
 }
 
 function icon(id, type) {
@@ -39,19 +41,24 @@ function isSpan(link, id) {
   return !!link && link.id === id
 }
 
-function handleParentLinkClick(target) {
-  const link = target.closest("span")
-  if (!link) return false
-  const parentIds = ["parentDirLink", "parentDirText", "parentlink", "parentLink"]
-  const isParentLinkClick = parentIds.some((id) => isSpan(link, id)) || parentIds.some((id) => !!link.closest(`#${id}`)) // retourne true si parent cliqué
+function onParentClick() {
+  ;["folder1", "folder2", "folder3", "file1", "blockedFolder"].forEach(show)
+  ;["folder4", "folder5", "folder6", "folder7", "folder8"].forEach(hide)
 
-  if (isParentLinkClick) {
-    ;["folder1", "folder2", "folder3", "file1", "blockedFolder"].forEach(show)[("span1", "span2", "span3")].forEach((id) => icon(id, "dir"))
-    icon("span1", "block")[("folder4", "folder5", "folder6", "folder7", "folder8")].forEach(hide)
-    return true
+  icon("span1", "dir")
+  icon("span2", "dir")
+  icon("span3", "dir")
+  icon("spanF", "file")
+  icon("spanB", "block")
+
+  const span2 = get("span2")
+  if (span2) {
+    span2.innerText = "morpion/"
+    span2.style.removeProperty("--folder")
   }
 
-  return false
+  taille("span2", "15 Go")
+  date("span2", "12/01/2026 19:04:15")
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -78,8 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("click", (event) => {
   const target = event.target
-  if (!(target instanceof Element)) return
-  if (handleParentLinkClick(target)) return //appel parent
+  if (!(target instanceof Element)) return //sécurité
+
+  const parentLink = target.closest("#parentDirLink")
+  if (parentLink) {
+    onParentClick()
+    return
+  }
 
   const link = target.closest("span")
   if (!link) return
