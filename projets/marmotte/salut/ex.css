@@ -74,7 +74,7 @@ span.unblock {
   background: var(--unlock) left top no-repeat;
 }
 
-tr:has(td.hidden-row), tr.is-hidden {
+tr:has(td.is-hidden), tr.is-hidden {
   display: none;
 }
 
