@@ -43,10 +43,6 @@ span.icon {
   cursor: pointer;
 }
 
-/*.fake-link.block {
-  cursor: var(--lock-cursor);
-}*/
-
 span.icon:hover {
   text-decoration: underline;
 }
@@ -76,6 +72,10 @@ span.block {
 
 span.unblock {
   background: var(--unlock) left top no-repeat;
+}
+
+tr:has(td.hidden-row), tr.is-hidden {
+  display: none;
 }
 
 html[dir="rtl"] span {
