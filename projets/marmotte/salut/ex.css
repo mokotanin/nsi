@@ -7,7 +7,9 @@
   --lock-cursor: not-allowed;
   --lock-link-style: none;
 }
-
+body {
+  font-family: 'Times New Roman';
+}
 h1 {
   border-bottom: 1px solid #c0c0c0;
   margin-bottom: 10px;

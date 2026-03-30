@@ -1,3 +1,9 @@
+//const isTrueFromB = typeof window.returnsTrueFromB === "function" && window.returnsTrueFromB()
+//console.log("Boolean received in bonsoir.js:", isTrueFromB)
+
+//const isTrueFromA = typeof window.returnsTrueFromA === "function" && window.returnsTrueFromA()
+//console.log("Boolean received in bonsoir.js:", isTrueFromA)
+ 
 function get(id) {
   return document.getElementById(id)
 }
@@ -42,6 +48,16 @@ function isSpan(link, id) {
 }
 
 function onParentClick() {
+  const box = get("listingParsingErrorBox")
+  const header = get("header")
+  const table = document.querySelector("table")
+  const tableBox = table?.closest("div")
+  const parentText = get("parentDirText")
+
+  if (header) header.style.display = ""
+  if (tableBox) tableBox.style.display = ""
+  if (box) box.style.display = "none"
+  if (parentText) parentText.innerText = "[répertoire parent]"
   ;["folder1", "folder2", "folder3", "file1", "blockedFolder"].forEach(show)
   ;["folder4", "folder5", "folder6", "folder7", "folder8"].forEach(hide)
 
@@ -57,8 +73,27 @@ function onParentClick() {
     span2.style.removeProperty("--folder")
   }
 
-  taille("span2", "15 Go")
   date("span2", "12/01/2026 19:04:15")
+}
+
+function text(title, content) {
+  const box = get("listingParsingErrorBox")
+  const header = get("header")
+  const table = document.querySelector("table")
+  const tableBox = table?.closest("div")
+  const parentText = get("parentDirText")
+
+  if (header) header.style.display = "none"
+  if (tableBox) tableBox.style.display = "none"
+  if (parentText) parentText.innerText = "[retour à l'index]"
+
+  if (box) {
+    box.style.display = "block"
+    box.innerHTML = `
+      <h2>${title}</h2>
+      ${content}
+    `
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -96,10 +131,20 @@ document.addEventListener("click", (event) => {
   const link = target.closest("span")
   if (!link) return
 
+  if (isSpan(link, "spanF")) {
+    text(
+      "Salut",
+      `
+      <p>Yop tt le monde jsuis papa (faux)</p>
+      <p>Deuxieme ligne</p>
+    `,
+    )
+    return
+  }
+
   if (!isSpan(link, "span1")) return
   get("span2").innerText = "ça fonctionne !"
   get("span2").style.setProperty("--folder", "var(--file)")
-  taille("span2", "80 Mb")
   date("span2", "très vieille date !")
   hide("folder1")
   icon("span3", "block")
