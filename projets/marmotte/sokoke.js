@@ -105,12 +105,15 @@ const jeu = {
   },
   12: {
     t: "これは現実じゃない。最初から存在していなかった。",
-    c: [{ t: "???", next: 14 }],
+    c: [{ t: "???", next: 19 }],
     bg: "#59283e",
     border: "#ffc9c5",
     boxbg: "#b94562bd",
     music: "yume",
     // url: "./..png",
+    action: () => {
+      end3 = true;
+    },
   },
   16: {
     t: "Vos données sont sécurisées et stockées sur les serveurs de la société hubiC, fournie par ██████.",
@@ -132,23 +135,32 @@ const jeu = {
     t: "Merci pour votre compréhension. _w4x.2 peut à présent commencer.",
   },
   19: {
-    t: "Vous avez deux choix.",
-    c: [
-      { t: "1", next: 100 },
-      { t: "2", next: 200 },
-      { t: 3, next: 12 },
-    ],
+    t: "Vous avez trois choix.",
+    get c() {
+      return [
+        ...(end1 ? [] : [{ t: "1", next: 100 }]),
+        { t: "2", next: 200 },
+        { t: "3", next: 12 },
+      ];
+    },
   },
   100: {
     t: "Insérer scénario 1",
+    action: () => { end1 = true },
+    c: { t: "yeu", next: 19}
   },
   200: {
     t: "Insérer scénario 2",
+    action: () => { end2 = true },
+    c: { t: "yeu", next: 19}
   },
 };
 
 let scenarioActuel = 0;
 let badEnding9 = false;
+let end1 = false;
+let end2 = false;
+let end3 = false;
 
 const musiques = {
   intro: { src: "for_the_fans.mp3", volume: 0.05 },
@@ -260,6 +272,10 @@ function afficherScenario() {
   const storyDiv = document.getElementById("story");
   const buttonsDiv = document.querySelector(".buttons");
 
+  if (scenario.action) {
+    scenario.action();
+  }
+
   storyDiv.textContent = scenario.t;
   buttonsDiv.innerHTML = "";
 
@@ -300,7 +316,13 @@ function afficherScenario() {
     reinitialiserProgression();
   }
 
-  (scenario.c ?? []).forEach((choixOption, index) => {
+  const options = Array.isArray(scenario.c)
+    ? scenario.c
+    : scenario.c
+      ? [scenario.c]
+      : [];
+
+  options.forEach((choixOption, index) => {
     const button = document.createElement("button");
     button.id = "btn" + (index + 1); // Simplicité pour sélectionner un bouton en CSS
     button.textContent = choixOption.t;
