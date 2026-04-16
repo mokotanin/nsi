@@ -1,5 +1,3 @@
-//TODO file explorer type interface and the two html are pseudo-tools to unlock a locked folder to finish the "game"
-
 const jeu = {
   0: {
     t: "_w4x.2",
