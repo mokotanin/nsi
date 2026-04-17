@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8" />
-        <!--<meta name="viewport" content="width=device-width, initial-scale=1.0" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>the oldest view</title>
         <link rel="stylesheet" href="lecteur.css" type="text/css" />
-        <script src="lecteur.js"></script>
+        <script src="lecteur.js" defer></script>
     </head>
-    <body>
-        <h1 id="story"></h1>
-        <div class="buttons">
-            <button onclick="choix(1)"></button>
-            <button onclick="choix(2)"></button>
-        </div>
 
-        <main class="player">
-            <video id="locked-video" autoplay loop playsinline preload="auto">
-                <source id="video-file" src="video.mp4" type="video/mp4" />
-            </video>
-        </main>
+    <body>
+        <article class="experience">
+            <div class="fade-overlay" aria-hidden="true"></div>
+            <h1 id="story"></h1>
+
+            <section class="player" aria-live="polite">
+                <video id="locked-video" autoplay playsinline preload="auto"></video>
+            </section>
+
+            <div class="buttons" aria-label="Choix du scénario"></div>
+        </article>
     </body>
+
 </html>
