@@ -8,26 +8,18 @@ const jeu = {
   },
   1: {
     t: "Vous regardez la premiere video.",
-    video: "video.mp4",
+    video: "rg/video.mov",
     c: [
       { t: "Video 2", next: 2 },
       { t: "Video 3", next: 3 },
     ],
   },
   2: {
-    t: "Vous regardez la deuxieme video.",
-    video: "video2.mp4",
-    c: [
-      { t: "Video 1", next: 1 },
-      { t: "Video 3", next: 3 },
-    ],
-  },
-  3: {
     t: "Vous regardez la troisieme video.",
-    video: "video3.mp4",
+    video: "rg/video3.mov",
     c: [
       { t: "Video 1", next: 1 },
-      { t: "Video 2", next: 2 },
+      { t: "Video 3", next: 2 },
     ],
   },
 }
