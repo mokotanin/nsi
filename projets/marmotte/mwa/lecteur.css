@@ -1,13 +1,59 @@
-* {
-    box-sizing: border-box;
+:root {
+    --maintext: #000;
+    --grayedout: #999;
+    --standout: #d32f2f;
+    --link: #1976d2;
+    --statok: #388e3c;
+    --statnok: #c62828;
+    --footer: #666;
+    --maintitle: #1565c0;
+    --boxtitle: #1976d2;
+    --alttitle: #000;
+    --bodybg: #ffffffc6;
+    --boxbg: #f5f5f5;
+    --tabbg: #e0e0e0;
+    --secbg: #fafafa;
+    --secborder: #1976d2;
+    --border: #ddd;
+    --diffadd: #c8e6c9;
+    --diffdel: #ffcdd2;
+    --warnbg: #fff3cd;
+    --warnborder: #ffc107;
+    --noticebg: #e3f2fd;
+    --noticeborder: #1976d2;
+    --helpbutton: #00bcd4;
+    --defaulturl: none;
 }
 
-html,
-body {
+/*body {
+    background-image: var(--defaulturl);
+    background-color: var(--bodybg);
+    color: var(--maintext);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    font:
+        bold italic 13px "Futura",
+        "Century New Gothic",
+        "Arial",
+        Serif;
     margin: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
+}*/
+
+.buttons {
+    background-color: transparent;
+    color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* espace entre les boutons */
 }
 
 .player {
@@ -22,8 +68,8 @@ body {
     width: min(100vw, 960px);
     height: auto;
     max-height: 100vh;
-    object-fit: contain;
-    background: #000;
+    object-fit: cover scale-down;
+    background: var(--bodybg);
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
