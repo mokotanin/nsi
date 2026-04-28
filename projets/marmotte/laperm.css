@@ -94,3 +94,10 @@ article {
   transition: width 600ms;
   background-color: #1976d2;
 }
+
+#story img {
+  max-width: 50%;
+  height: auto;
+  margin: 15px 0;
+  border-radius: 10px;
+}
