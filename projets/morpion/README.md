@@ -1,3 +1,4 @@
+[!][python](../../assets/compact_46h.png)
 # différentes versions du morpion
 
 - [morpion sans image](/morpion/gabs.py)

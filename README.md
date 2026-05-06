@@ -4,7 +4,6 @@ petite trace des prémices **sombres** de la programmation
 
 > [!TIP]
 > créez un environnement virtuel avant d'installer les dépendances
-> 
 ## dépendances
 
 > [!IMPORTANT]

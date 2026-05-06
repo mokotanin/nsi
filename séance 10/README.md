@@ -1,4 +1,4 @@
-![html](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-4.png) ![css](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-5.png) ![js](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-2.png) ![php](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy-3.png) ![xampp](https://github.com/mokotanin/nsi/blob/0eff96599ca7ba3c936dae87129258f7f27d4198/assets/cozy_64h%20(3).png)
+![html](../assets/html.png) ![css](../assets/css.png) ![js](../assets/js.png)  ![php](../assets/php.png) 
 # séance 10
 
 1. [code(Sic.)](./code(Sic)/) (html et css)

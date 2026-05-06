@@ -423,6 +423,14 @@ const jeu = {
     audio: "zelda.mp3",
     url: "lycée.jpg",
   },
+  143: {
+    t: "Vous êtes de retour dans le couloir",
+    c: [
+      { t: "Porte jaune : vérouillée ", next: 126 },
+      { t: "Porte bleue condamnée de l'intérieur ", next: 124 },
+    ],
+    url: "lycée.jpg",
+  },
   124: {
     t: "Vous utilisez",
     c: [
@@ -436,7 +444,7 @@ const jeu = {
     c: [
       {
         t: "Oui bon ça va, j'essaie juste de faire le tour de tout les recoins du jeu.",
-        next: 123,
+        next: 143,
       },
     ],
     url: "lycée.jpg",
@@ -454,7 +462,7 @@ const jeu = {
     c: [
       {
         t: "Vous êtes des malins vous.",
-        next: 123,
+        next: 143,
       },
     ],
     url: "lycée.jpg",
@@ -510,6 +518,7 @@ const jeu = {
           return false
         },
       },
+      {t: "Retourner en arrière.", next: 129,},
     ],
   },
   133: {
@@ -633,6 +642,9 @@ const jeu = {
       { t: "Vous marchez sans bruit", next: 302 },
     ],
     music: "foret",
+    bg: "#3B4D37",
+    boxbg: "#4B573E",
+    border: "#3E4031"
   },
 
   301: {
@@ -709,6 +721,9 @@ const jeu = {
       { t: "Traverser sur le pont", next: 313 },
     ],
     music: "riviere",
+    bg: "#ADCACA",
+    boxbg: "#6BBFBF",
+    border: "#244040"
   },
 
   311: {
@@ -801,6 +816,9 @@ const jeu = {
     t: "Vous contournez et trouvez... la rivière !",
     c: [{ t: "Continuer", next: 310 }], // rejoint ton chemin existant
     music: "riviere",
+    bg: "#ADCACA",
+    boxbg: "#6BBFBF",
+    border: "#244040"
   },
 
   335: {
