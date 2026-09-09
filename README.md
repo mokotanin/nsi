@@ -2,8 +2,8 @@
 # cours de nsi 2025 2026 2027
 petite trace des prémices **sombres** de la programmation
 
-25-26 -> première
-26-27 -> terminale (tle)
+25-26 première </br>
+26-27 terminale (tle)
 > [!TIP]
 > créez un environnement virtuel avant d'installer les dépendances
 ## dépendances
