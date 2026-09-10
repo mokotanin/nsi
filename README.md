@@ -6,6 +6,9 @@ petite trace des prémices **sombres** de la programmation
 26-27 terminale (tle)
 > [!TIP]
 > créez un environnement virtuel avant d'installer les dépendances
+> ```bash
+> python -m venv .venv
+> ```
 ## dépendances
 
 > [!IMPORTANT]
