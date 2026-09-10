@@ -1,4 +1,6 @@
 {
   "typeCheckingMode": "basic",
   "reportMissingParameterType": "none",
+  "venvPath": ".",
+  "venv": "venv"
 }
